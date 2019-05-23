@@ -1,0 +1,25 @@
+{
+  "name": "livepersoncc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server-dev": "nodemon server/index.js",
+    "start": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/connieyeah/livepersonCC.git"
+  },
+  "author": "Connie Ea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/connieyeah/livepersonCC/issues"
+  },
+  "homepage": "https://github.com/connieyeah/livepersonCC#readme",
+  "dependencies": {
+    "express": "^4.17.0",
+    "request": "^2.88.0",
+    "ws": "^7.0.0"
+  }
+}
