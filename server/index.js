@@ -17,11 +17,10 @@ const getPublishMessage = (cId) => {
       }
     }
   }
-}
+};
 
 // define your api endpoint e
 request.post('https://va.idp.liveperson.net/api/account/40912224/signup', (err, res, body) => {
-  // console.log(`>>>>>>>>>>this is res`, JSON.parse(res.body).jwt)
   let LIVEPERSON_JWT = JSON.parse(res.body).jwt;
 
   const ws = new WebSocket ('wss://va.msg.liveperson.net/ws_api/account/40912224/messaging/consumer?v=3', {
@@ -38,12 +37,9 @@ request.post('https://va.idp.liveperson.net/api/account/40912224/signup', (err, 
     };
     
     ws.onmessage = function (evt) {
-      // console.log("Message received = " + evt.data);
-      const cId = JSON.parse(evt.data).body.conversationId
-      // console.log('conversation id: ', cId)
-      const message = getPublishMessage(cId)
+      const cId = JSON.parse(evt.data).body.conversationId;
+      const message = getPublishMessage(cId);
       if (cId) {
-        // console.log(`what is message: `, message)
         ws.send(JSON.stringify(message))
         ws.close()
       }
